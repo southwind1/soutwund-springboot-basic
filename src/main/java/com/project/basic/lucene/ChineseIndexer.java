@@ -1,4 +1,4 @@
-package com.project.basic.lucene;
+ package com.project.basic.lucene;
 
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.*;
@@ -62,6 +62,7 @@ public class ChineseIndexer {
         IndexWriter writer = new IndexWriter(dir, config);
         return writer;
     }
+
 
     public static void main(String[] args) throws Exception {
         new ChineseIndexer().index("D:\\lucene2");
