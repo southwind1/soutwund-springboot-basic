@@ -3,7 +3,11 @@ package com.project.basic.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
+@Component
+@ConfigurationProperties(prefix = "user")
 @ApiModel(value = "用户实体类")
 public class User {
 

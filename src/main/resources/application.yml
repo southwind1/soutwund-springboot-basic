@@ -1,44 +1,45 @@
 
-# ·şÎñ¶Ë¿ÚºÅ
+# æœåŠ¡ç«¯å£å·
 server:
   port: 8080
 
-# Êı¾İ¿âµØÖ·
+# æ•°æ®åº“åœ°å€
 datasource:
   url: localhost:3306/blog_test
 
 spring:
-  datasource: # Êı¾İ¿âÅäÖÃ
+  datasource: # æ•°æ®åº“é…ç½®
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${datasource.url}?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
     username: root
     password: 1037
     hikari:
-      maximum-pool-size: 10 # ×î´óÁ¬½Ó³ØÊı
+      maximum-pool-size: 10 # æœ€å¤§è¿æ¥æ± æ•°
       max-lifetime: 1770000
-  #redisÏà¹ØÅäÖÃ
+  #redisç›¸å…³é…ç½®
   redis:
     database: 5
-    # ÅäÖÃredisµÄÖ÷»úµØÖ·£¬ĞèÒªĞŞ¸Ä³É×Ô¼ºµÄ
+    # é…ç½®redisçš„ä¸»æœºåœ°å€ï¼Œéœ€è¦ä¿®æ”¹æˆè‡ªå·±çš„
     host: localhost
     port: 6379
     password: ''
     timeout: 5000
     jedis:
       pool:
-        # Á¬½Ó³ØÖĞµÄ×î´ó¿ÕÏĞÁ¬½Ó£¬Ä¬ÈÏÖµÒ²ÊÇ8¡£
+        # è¿æ¥æ± ä¸­çš„æœ€å¤§ç©ºé—²è¿æ¥ï¼Œé»˜è®¤å€¼ä¹Ÿæ˜¯8ã€‚
         max-idle: 500
-        # Á¬½Ó³ØÖĞµÄ×îĞ¡¿ÕÏĞÁ¬½Ó£¬Ä¬ÈÏÖµÒ²ÊÇ0¡£
+        # è¿æ¥æ± ä¸­çš„æœ€å°ç©ºé—²è¿æ¥ï¼Œé»˜è®¤å€¼ä¹Ÿæ˜¯0ã€‚
         min-idle: 50
-        # Èç¹û¸³ÖµÎª-1£¬Ôò±íÊ¾²»ÏŞÖÆ£»Èç¹ûpoolÒÑ¾­·ÖÅäÁËmaxActive¸öjedisÊµÀı£¬Ôò´ËÊ±poolµÄ×´Ì¬Îªexhausted(ºÄ¾¡)
+        # å¦‚æœèµ‹å€¼ä¸º-1ï¼Œåˆ™è¡¨ç¤ºä¸é™åˆ¶ï¼›å¦‚æœpoolå·²ç»åˆ†é…äº†maxActiveä¸ªjediså®ä¾‹ï¼Œåˆ™æ­¤æ—¶poolçš„çŠ¶æ€ä¸ºexhausted(è€—å°½)
         max-active: 1000
-        # µÈ´ı¿ÉÓÃÁ¬½ÓµÄ×î´óÊ±¼ä£¬µ¥Î»ºÁÃë£¬Ä¬ÈÏÖµÎª-1£¬±íÊ¾ÓÀ²»³¬Ê±¡£Èç¹û³¬¹ıµÈ´ıÊ±¼ä£¬ÔòÖ±½ÓÅ×³öJedisConnectionException
+        # ç­‰å¾…å¯ç”¨è¿æ¥çš„æœ€å¤§æ—¶é—´ï¼Œå•ä½æ¯«ç§’ï¼Œé»˜è®¤å€¼ä¸º-1ï¼Œè¡¨ç¤ºæ°¸ä¸è¶…æ—¶ã€‚å¦‚æœè¶…è¿‡ç­‰å¾…æ—¶é—´ï¼Œåˆ™ç›´æ¥æŠ›å‡ºJedisConnectionException
         max-wait: 2000
+  activemq:
 
 mybatis:
-  # Ö¸¶¨±ğÃûÉèÖÃµÄ°üÎªËùÓĞentity
+  # æŒ‡å®šåˆ«åè®¾ç½®çš„åŒ…ä¸ºæ‰€æœ‰entity
   type-aliases-package: com.project.basic.entity
   configuration:
-    map-underscore-to-camel-case: true # ÍÕ·åÃüÃû¹æ·¶
-  mapper-locations: # mapperÓ³ÉäÎÄ¼şÎ»ÖÃ
+    map-underscore-to-camel-case: true # é©¼å³°å‘½åè§„èŒƒ
+  mapper-locations: # mapperæ˜ å°„æ–‡ä»¶ä½ç½®
     - classpath:mapper/*.xml
